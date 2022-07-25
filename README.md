@@ -1,6 +1,6 @@
 # Recognition with Deep Learning
 
-**Overview** : This project uses Deep Convolutional Neural Networks for scene recognition. In essence, the motivation of the project is to study how various transformations can affect performance of our created models incrementally. 
+**Overview** : This project uses Deep Convolutional Neural Networks for scene recognition. In essence, the motivation of the project is to study how various transformations can affect performance of some created models incrementally. First, scene classification is done with some models. Later, multi-attribute recognition is done within scenes.
 
 **Results** : Please see DL For Recog.pdf
 
