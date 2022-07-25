@@ -42,4 +42,4 @@ The main code/directory can be navigated as follows :
 Further, for results, please see the pdf : DL For Recog.pdf
 
 
-### To do : Update instructions to use and download.
+#### To do : Update instructions to use and download.
