@@ -2,6 +2,8 @@
 
 **Overview** : This project uses Deep Convolutional Neural Networks for scene recognition. In essence, the motivation of the project is to study how various transformations can affect performance of our created models incrementally. 
 
+**Results** : Please see DL For Recog.pdf
+
 To summarize the project, please see below :
 
 * First, I start out with a simple CNN built from scratch which is aptly named *SimpleNet*.
