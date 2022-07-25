@@ -17,7 +17,43 @@ To summarize the project, please see below :
 
 The code directory can be found as follows :
 
+## Project Structure
 
+```console
+.
+├── README.md
+├── cutoff_frequencies.txt
+├── data
+│   ├── 1a_dog.bmp
+│   ├── 1b_cat.bmp
+│   ├── 2a_motorcycle.bmp
+│   ├── 2b_bicycle.bmp
+│   ├── 3a_plane.bmp
+│   ├── 3b_bird.bmp
+│   ├── 4a_einstein.bmp
+│   ├── 4b_marilyn.bmp
+│   ├── 5a_submarine.bmp
+│   └── 5b_fish.bmp
+│   └── part4
+│       ├── kernel.npy
+│       └── mystery.npy
+├── docs
+│   └── report.pptx
+├── project-1.ipynb
+├── pyproject.toml
+├── scripts
+│   └── submission.py
+├── setup.cfg
+├── src
+│   └── vision
+│       ├── __init__.py
+│       ├── part1.py
+│       ├── part2_datasets.py
+│       ├── part2_models.py
+│       ├── part3.py
+│       └── utils.py
+└── tests
+'''
 
 
 
