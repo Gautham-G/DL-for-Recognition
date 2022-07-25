@@ -17,21 +17,27 @@ To summarize the project, please see below :
 
 The main code/directory can be navigated as follows :
 
-## Project Structure
+#### Code Structure
 
 ```console
 .
 ├── src
 │   └── vision
 │       ├── __init__.py
-│       ├── part1.py
-│       ├── part2_datasets.py
-│       ├── part2_models.py
-│       ├── part3.py
-│       └── utils.py
+│       ├── confusion_matrix.py (Functions to print and plot the confusion matrix)
+│       ├── data_transforms.py (Functions to create different types of data augementation)
+│       ├── dl_utils.py (Different utilities (loss, accuracy, save weights))
+│       ├── image_loader.py (Dataloader)
+│       ├── multilabel_resnet.py (Multi-label resnet model and forward)
+│       ├── my_resnet.py (ResNet28 model and forward)
+│       ├── optimizer.py (Helper functions for optimizer)
+│       ├── runner.py (Runner - saves metadata)
+│       ├── simple_net.py (Simple net as per desctription)
+│       ├── simple_net_final.py (Model after transformations, as per desctiption)
+│       └── stats_helper.py (stats helper)
 ```
 
-
+Further, for results, please see the pdf : DL For Recog.pdf
 
 
 ### To Update : Instructions to use and download.
