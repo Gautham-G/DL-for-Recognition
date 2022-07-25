@@ -26,9 +26,6 @@ class MyResNet18(nn.Module):
         self.fc_layers = None
         self.loss_criterion = nn.CrossEntropyLoss(reduction = 'mean')
 
-        ############################################################################
-        # Student code begin
-        ############################################################################
 
         output_classes = 15
 
@@ -51,14 +48,6 @@ class MyResNet18(nn.Module):
             nn.Linear(in_features=512, out_features=15, bias=True)
         )
 
-        # raise NotImplementedError(
-        #     "`__init__` function in "
-        #     + "`my_resnet.py` needs to be implemented"
-        # )
-
-        ############################################################################
-        # Student code end
-        ############################################################################
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """Perform the forward pass with the net, duplicating grayscale channel to 3-channel.
@@ -71,20 +60,9 @@ class MyResNet18(nn.Module):
         """
         model_output = None
         x = x.repeat(1, 3, 1, 1)  # as ResNet accepts 3-channel color images
-        ############################################################################
-        # Student code begin
-        ############################################################################
         
         x = self.conv_layers(x)
         x = torch.flatten(x, start_dim = 1)
         model_output = self.fc_layers(x)
 
-        # raise NotImplementedError(
-        #     "`forward` function in "
-        #     + "`my_resnet.py` needs to be implemented"
-        # )
-
-        ############################################################################
-        # Student code end
-        ############################################################################
         return model_output

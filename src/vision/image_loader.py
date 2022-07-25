@@ -59,9 +59,6 @@ class ImageLoader(data.Dataset):
 
         img_paths = []  # a list of (filename, class index)
 
-        ############################################################################
-        # Student code begin
-        ############################################################################
 
         for class_key, class_index in class_labels.items():
             # print(class_key, class_index)
@@ -73,15 +70,6 @@ class ImageLoader(data.Dataset):
             img_paths += [(f, class_index) for f in files]
 
 
-        # raise NotImplementedError(
-        #     "`load_imagepaths_with_labels` function in "
-        #     + "`image_loader.py` needs to be implemented"
-        # )
-
-
-        ############################################################################
-        # Student code end
-        ############################################################################
 
         return img_paths
 
@@ -101,23 +89,12 @@ class ImageLoader(data.Dataset):
         """
 
         classes = dict()
-        ############################################################################
-        # Student code begin
-        ############################################################################
 
         classes_list = [folder.name for folder in os.scandir(self.curr_folder) if folder.is_dir()]
         classes_list.sort()
         classes = {classes_list[idx]: idx for idx in range(len(classes_list))}
         classes = dict(sorted(classes.items()))
 
-        # raise NotImplementedError(
-        #     "`get_classes` function in "
-        #     + "`image_loader.py` needs to be implemented"
-        # )
-
-        ############################################################################
-        # Student code end
-        ############################################################################
         return classes
 
     def load_img_from_path(self, path: str) -> Image:
@@ -133,22 +110,11 @@ class ImageLoader(data.Dataset):
         """
 
         img = None
-        ############################################################################
-        # Student code begin
-        ############################################################################
 
         with open(path, 'rb') as f:
             img = Image.open(f)
             img = img.convert('L')
 
-        # raise NotImplementedError(
-        #     "`load_img_from_path` function in "
-        #     + "`image_loader.py` needs to be implemented"
-        # )
-
-        ############################################################################
-        # Student code end
-        ############################################################################
         return img
 
     def __getitem__(self, index: int) -> Tuple[torch.Tensor, int]:
@@ -170,23 +136,12 @@ class ImageLoader(data.Dataset):
         img = None
         class_idx = None
 
-        ############################################################################
-        # Student code start
-        ############################################################################
 
         file_name, class_idx = self.dataset[index]
         img_temp = self.load_img_from_path(file_name)
         # if self.transform is not None:
         img = self.transform(img_temp)
 
-        # raise NotImplementedError(
-        #     "`__getitem__` function in "
-        #     + "`image_loader.py` needs to be implemented"
-        # )
-
-        ############################################################################
-        # Student code end
-        ############################################################################
         return img, class_idx
 
     def __len__(self) -> int:
@@ -196,19 +151,9 @@ class ImageLoader(data.Dataset):
             l: length of the dataset
         """
 
-        ############################################################################
-        # Student code start
-        ############################################################################
 
         l = len(self.dataset)
 
-        # raise NotImplementedError(
-        #     "`__len__` function in "
-        #     + "`image_loader.py` needs to be implemented"
-        # )
-        ############################################################################
-        # Student code end
-        ############################################################################
         return l
 
 
@@ -258,9 +203,6 @@ class MultiLabelImageLoader(data.Dataset):
 
         img_paths = []  # a list of (filename, class index)
 
-        ############################################################################
-        # Student code begin
-        ############################################################################
 
         columns_csv = ['Place', 'Name_img', 'label0', 'label1', 'label2', 'label3', 'label4', 'label5', 'label6']
         data_from_csv = pd.read_csv(self.labels_csv, names = columns_csv)
@@ -268,14 +210,6 @@ class MultiLabelImageLoader(data.Dataset):
         for index, row in data_from_csv.iterrows():
             img_paths.append( [self.curr_folder + '/' + str(row['Place']) + '/' + str(row['Name_img']), torch.Tensor( [int(row['label0']), int(row['label1']), int(row['label2']), int(row['label3']), int(row['label4']), int(row['label5']), int(row['label6']) ] ) ])
 
-        # raise NotImplementedError(
-        #     "`load_imagepaths_with_labels` function in "
-        #     + "`image_loader.py` needs to be implemented"
-        # )
-
-        ############################################################################
-        # Student code end
-        ############################################################################
 
         return img_paths
 
@@ -293,31 +227,19 @@ class MultiLabelImageLoader(data.Dataset):
         """
 
         img = None
-        ############################################################################
-        # Student code begin
-        ############################################################################
 
         with open(path, 'rb') as f:
             img = Image.open(f)
             img = img.convert('L')
 
-        # raise NotImplementedError(
-        #     "`load_img_from_path` function in "
-        #     + "`image_loader.py` needs to be implemented"
-        # )
 
 
-        ############################################################################
-        # Student code end
-        ############################################################################
         return img
 
     def __getitem__(self, index: int) -> Tuple[torch.Tensor, int]:
         """Fetches the item (image, label) at a given index.
 
-        Note: Do not forget to apply the transforms, if they exist
-
-        Hint:
+        
         1) get info from self.dataset
         2) use load_img_from_path
         3) apply transforms if valid
@@ -331,23 +253,12 @@ class MultiLabelImageLoader(data.Dataset):
         img = None
         class_idx = None
 
-        ############################################################################
-        # Student code start
-        ############################################################################
 
         file_name, class_idx = self.dataset[index]
         img_temp = self.load_img_from_path(file_name)
         # if self.transform is not None:
         img = self.transform(img_temp)
 
-        # raise NotImplementedError(
-        #     "`__getitem__` function in "
-        #     + "`image_loader.py` needs to be implemented"
-        # )
-
-        ############################################################################
-        # Student code end
-        ############################################################################
         return img, class_idx
 
     def __len__(self) -> int:
@@ -357,19 +268,7 @@ class MultiLabelImageLoader(data.Dataset):
             l: length of the dataset
         """
 
-        l = 0
-
-        ############################################################################
-        # Student code start
-        ############################################################################
 
         l = len(self.dataset)
 
-        # raise NotImplementedError(
-        #     "`__len__` function in "
-        #     + "`image_loader.py` needs to be implemented"
-        # )
-        ############################################################################
-        # Student code end
-        ############################################################################
         return l

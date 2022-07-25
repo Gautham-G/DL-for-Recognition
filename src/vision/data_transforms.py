@@ -17,23 +17,12 @@ def get_fundamental_transforms(inp_size: Tuple[int, int]) -> transforms.Compose:
         fundamental_transforms: transforms.compose with the fundamental transforms
     """
     fundamental_transforms = None
-    ###########################################################################
-    # Student code begins
-    ###########################################################################
 
     fundamental_transforms = transforms.Compose([
         transforms.Resize((inp_size[0], inp_size[1])), 
         transforms.ToTensor()
         ])
 
-    # raise NotImplementedError(
-    #     "`get_fundamental_transforms` function in "
-    #     + "`data_transforms.py` needs to be implemented"
-    # )
-
-    ###########################################################################
-    # Student code ends
-    ###########################################################################
     return fundamental_transforms
 
 
@@ -49,9 +38,6 @@ def get_fundamental_augmentation_transforms(
         aug_transforms: transforms.compose with all the transforms
     """
     fund_aug_transforms = None
-    ###########################################################################
-    # Student code begin
-    ###########################################################################
 
     fund_aug_transforms = transforms.Compose([
         transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2), 
@@ -63,14 +49,6 @@ def get_fundamental_augmentation_transforms(
         transforms.ToTensor(),
         ])
 
-    # raise NotImplementedError(
-    #     "`get_fundamental_augmentation_transforms` function in "
-    #     + "`data_transforms.py` needs to be implemented"
-    # )
-
-    ###########################################################################
-    # Student code end
-    ###########################################################################
     return fund_aug_transforms
 
 
@@ -89,9 +67,6 @@ def get_fundamental_normalization_transforms(
         fundamental_transforms: transforms.compose with the fundamental transforms
     """
     fund_norm_transforms = None
-    ###########################################################################
-    # Student code begins
-    ###########################################################################
 
     fund_norm_transforms = transforms.Compose([
         # transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2),
@@ -100,14 +75,6 @@ def get_fundamental_normalization_transforms(
         transforms.Normalize(mean=pixel_mean, std=pixel_std)
     ])
 
-    # raise NotImplementedError(
-    #     "`get_fundamental_normalization_transforms` function in "
-    #     + "`data_transforms.py` needs to be implemented"
-    # )
-
-    ###########################################################################
-    # Student code ends
-    ###########################################################################
     return fund_norm_transforms
 
 
@@ -126,9 +93,6 @@ def get_all_transforms(
         aug_transforms: transforms.compose with all the transforms
     """
     all_transforms = None
-    ###########################################################################
-    # Student code begins
-    ###########################################################################
 
     all_transforms = transforms.Compose([ 
         transforms.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2), 
@@ -142,12 +106,4 @@ def get_all_transforms(
         ])
 
 
-    # raise NotImplementedError(
-    #     "`get_all_transforms` function in "
-    #     + "`data_transforms.py` needs to be implemented"
-    # )
-
-    ###########################################################################
-    # Student code ends
-    ###########################################################################
     return all_transforms

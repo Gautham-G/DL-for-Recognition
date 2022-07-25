@@ -21,9 +21,6 @@ class MultilabelResNet18(nn.Module):
         self.activation = nn.Sigmoid()
         self.loss_criterion = nn.BCELoss(reduction = 'mean')    
 
-        ############################################################################
-        # Student code begin
-        ############################################################################
 
         output_classes = 7
 
@@ -37,9 +34,6 @@ class MultilabelResNet18(nn.Module):
             nn.Linear(in_features=512, out_features=output_classes, bias=True)
         )
 
-        ############################################################################
-        # Student code end
-        ############################################################################
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """Perform the forward pass with the net, duplicating grayscale channel to 3-channel.
@@ -52,9 +46,6 @@ class MultilabelResNet18(nn.Module):
         """
         model_output = None
         x = x.repeat(1, 3, 1, 1)  # as ResNet accepts 3-channel color images
-        ############################################################################
-        # Student code begin
-        ############################################################################
         # changed
         output = self.conv_layers(x)
         output = output.view(x.size(0), -1)
@@ -77,7 +68,4 @@ class MultilabelResNet18(nn.Module):
         # )
 
 
-        ############################################################################
-        # Student code end
-        ############################################################################
         return model_output

@@ -28,9 +28,6 @@ def compute_mean_and_std(dir_name: str) -> Tuple[float, float]:
     mean = None
     std = None
 
-    ############################################################################
-    # Student code begin
-    ############################################################################
 
     main_dir = os.listdir(dir_name)
     xi = []
@@ -74,12 +71,4 @@ def compute_mean_and_std(dir_name: str) -> Tuple[float, float]:
     var = np.sum(var_list)/n
     std = var**0.5
 
-    # raise NotImplementedError(
-    #         "`compute_mean_and_std` function in "
-    #         + "`stats_helper.py` needs to be implemented"
-    #     )
-
-    ############################################################################
-    # Student code end
-    ############################################################################
     return mean, std

@@ -29,22 +29,10 @@ class SimpleNet(nn.Module):
             nn.Linear(in_features=100, out_features=15, bias=True)
             # nn.Linear(15, 1) 
         )
-        self.loss_criterion = None
 
-        ############################################################################
-        # Student code begin
-        ############################################################################
 
         self.loss_criterion = nn.CrossEntropyLoss(reduction='sum')
 
-        # raise NotImplementedError(
-        #     "`__init__` function in "
-        #     + "`simple_net.py` needs to be implemented"
-        # )
-
-        ############################################################################
-        # Student code end
-        ############################################################################
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
@@ -56,21 +44,10 @@ class SimpleNet(nn.Module):
         -   y: the output (raw scores) of the net [Dim: (N,15)]
         """
         model_output = None
-        ############################################################################
-        # Student code begin
-        ############################################################################
 
         x = self.conv_layers(x)
         x = torch.flatten(x, start_dim = 1)
         model_output = self.fc_layers(x)
         
-        # raise NotImplementedError(
-        #     "`forward` function in "
-        #     + "`simple_net.py` needs to be implemented"
-        # )
-
-        ############################################################################
-        # Student code end
-        ############################################################################
 
         return model_output

@@ -30,9 +30,6 @@ def get_optimizer(
     learning_rate = config.get("lr", 1e-3)
     weight_decay = config.get("weight_decay", 1e-5)
 
-    ############################################################################
-    # Student code begin
-    ############################################################################
 
     if optimizer_type == 'adam':
         optimizer = torch.optim.Adam(model.parameters(), lr = learning_rate, weight_decay = weight_decay)
@@ -40,13 +37,5 @@ def get_optimizer(
         optimizer = torch.optim.SGD(model.parameters(), lr = learning_rate, weight_decay = weight_decay)
 
 
-    # raise NotImplementedError(
-    #         "`get_optimizer` function in "
-    #         + "`optimizer.py` needs to be implemented"
-    #     )
-
-    ############################################################################
-    # Student code end
-    ############################################################################
 
     return optimizer

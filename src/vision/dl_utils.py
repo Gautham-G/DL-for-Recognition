@@ -26,22 +26,11 @@ def compute_accuracy(logits: torch.Tensor, labels: torch.Tensor) -> float:
                    (number of correct predictions / total number of examples)
     """
     batch_accuracy = 0.0
-    ############################################################################
-    # Student code begin
-    ############################################################################
-
+ 
     prediction  = torch.argmax(logits, dim = 1)
     matching_predictions = torch.sum(prediction == labels)
     batch_accuracy = matching_predictions.item()/logits.shape[0]
 
-    # raise NotImplementedError(
-    #     "`compute_accuracy` function in "
-    #     + "`dl_utils.py` needs to be implemented"
-    # )
-
-    ############################################################################
-    # Student code end
-    ############################################################################
 
     return batch_accuracy
 
@@ -65,23 +54,11 @@ def compute_loss(
     """
     loss = None
 
-    ############################################################################
-    # Student code begin
-    ############################################################################
-
     loss = model.loss_criterion(model_output, target_labels)
 
     if is_normalize:
         loss = loss/target_labels.shape[0]
 
-    # raise NotImplementedError(
-    #     "`compute_loss` function in "
-    #     + "`dl_utils.py` needs to be implemented"
-    # )
-
-    ############################################################################
-    # Student code end
-    ############################################################################
 
     return loss
 
@@ -100,9 +77,6 @@ def compute_multilabel_accuracy(logits: torch.Tensor, labels: torch.Tensor) -> f
                   (number of correct predictions / total number of labels)
     """
     batch_accuracy = 0.0
-    ############################################################################
-    # Student code begin
-    ############################################################################
     log_arr = logits>0.5
     k, l = logits.shape
     a = torch.zeros(logits.shape)
@@ -114,14 +88,6 @@ def compute_multilabel_accuracy(logits: torch.Tensor, labels: torch.Tensor) -> f
                 a[i][j]=0
     
     batch_accuracy = torch.sum(a==labels).item()/(k*l)
-    # raise NotImplementedError(
-    #     "`compute_multilabel_accuracy` function in "
-    #     + "`dl_utils.py` needs to be implemented"
-    # )
-
-    ############################################################################
-    # Student code end
-    ############################################################################
 
     return batch_accuracy
 
